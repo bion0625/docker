@@ -1,0 +1,21 @@
+version: "3.7"
+
+services:
+  todo:
+    image: diamol/ch09-todo-list
+    ports:
+      - "8080:80"
+    networks:
+      - app-net
+  prometheus:
+    image: diamol/ch09-prometheus
+    ports:
+      - "9090:9090"
+    environment:
+      - DOCKER_HOST=${HOST_IP}
+    networks:
+      - app-net
+networks:
+  app-net:
+    external:
+      name: nat
