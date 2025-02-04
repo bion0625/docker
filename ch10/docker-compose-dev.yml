@@ -1,0 +1,6 @@
+services:
+  todo-web:
+    ports:
+      - "8089:80"
+    environment:
+      - Database:Provider=Sqlite
